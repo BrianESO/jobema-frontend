@@ -1,82 +1,202 @@
-# Jobema — Front-end
+# Frontend — Jobema
 
-Sistema de gerenciamento operacional da **Jobema Distribuidora de Água Ltda**, desenvolvido como projeto de extensão acadêmica na FATEC.
+## Visão Geral
 
----
+Interface web responsável pela interação dos usuários com o sistema Jobema.
 
-## 🚀 Tecnologias
+A aplicação consome uma API REST para gerenciamento de clientes, caminhões, operações, vales, fechamentos mensais e usuários.
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
+## Stack Tecnológica
 
----
-
-## 📋 Pré-requisitos
-
-- [Node.js](https://nodejs.org) v18 ou superior
-- Pacote `serve` instalado globalmente:
-
-```bash
-npm install -g serve
-```
-
-- [Back-end Jobema](https://github.com/giuladislau/jobema-backend) rodando na porta 3000
+| Item        | Tecnologia                    |
+| ----------- | ----------------------------- |
+| Linguagem   | JavaScript (ES6+)             |
+| Estrutura   | Single Page Application (SPA) |
+| Interface   | HTML5 + CSS3                  |
+| Comunicação | Fetch API                     |
+| Integração  | API REST                      |
 
 ---
 
-## ▶️ Como executar
+## Arquitetura
 
-```bash
-cd jobema-frontend
-serve . -l 3001
-```
+O frontend está organizado em módulos responsáveis pela interface, comunicação com a API e controle de estado da aplicação.
 
-Acesse: **http://localhost:3001**
+Estrutura principal:
 
----
+text
+frontend/
+├── index.html
+├── style.css
+├── api.js
+└── app.js
 
-## 📁 Estrutura de arquivos
 
-jobema-frontend/
-├── index.html # Estrutura HTML — todas as telas e modais
-├── style.css # Estilo visual — identidade Jobema
-├── api.js # Camada de comunicação com o back-end
-└── app.js # Lógica de todos os módulos
-
----
-
-## ⚙️ Configuração
-
-No arquivo `api.js`, linha 7, ajuste a URL do back-end se necessário:
-
-```javascript
-const BASE_URL = "http://localhost:3000";
-```
+| Arquivo    | Responsabilidade                         |
+| ---------- | ---------------------------------------- |
+| index.html | Estrutura da aplicação                   |
+| style.css  | Camada de apresentação                   |
+| api.js     | Comunicação com a API                    |
+| app.js     | Regras de interface e fluxo da aplicação |
 
 ---
 
-## 📦 Módulos
+## Módulos Funcionais
 
-| Módulo      | Descrição                              |
-| ----------- | -------------------------------------- |
-| Login       | Autenticação com JWT                   |
-| Dashboard   | Visão geral com estatísticas           |
-| Clientes    | Cadastro com modalidade e preço por m³ |
-| Caminhões   | Gestão da frota                        |
-| Operações   | Registro de entregas e retiradas       |
-| Vales       | Comprovantes imprimíveis               |
-| Histórico   | Consulta por cliente e período         |
-| Fechamentos | Consolidação mensal com exportação PDF |
-| Usuários    | Controle de acesso (apenas admin)      |
+### Autenticação
+
+Responsável pela autenticação do usuário e gerenciamento da sessão da aplicação.
+
+Funcionalidades:
+
+* Login
+* Controle de sessão
+* Logout
+* Proteção de telas restritas
 
 ---
 
-## 👥 Equipe
+### Dashboard
 
-- Brian Evangelista
-- Giullia Ladislau
-- Larissa Lopufe
+Painel inicial para visualização consolidada das informações do sistema.
 
-**Curso:** Análise e Desenvolvimento de Sistemas — FATEC  
-**Disciplinas:** Laboratório de Banco de Dados / Gestão de Projetos / Engenharia de Software III
+Funcionalidades:
+
+* Indicadores operacionais
+* Resumo de registros
+* Consulta rápida de informações recentes
+
+---
+
+### Clientes
+
+Gerenciamento completo dos registros de clientes.
+
+Funcionalidades:
+
+* Listagem
+* Cadastro
+* Edição
+* Exclusão
+
+---
+
+### Caminhões
+
+Gerenciamento da frota utilizada nas operações.
+
+Funcionalidades:
+
+* Listagem
+* Cadastro
+* Edição
+* Exclusão
+
+---
+
+### Operações
+
+Módulo principal de registro operacional.
+
+Funcionalidades:
+
+* Listagem
+* Cadastro
+* Edição
+* Exclusão
+* Consulta histórica
+
+---
+
+### Vales
+
+Gerenciamento dos vales vinculados às operações.
+
+Funcionalidades:
+
+* Listagem
+* Consulta
+* Atualização
+* Controle de pagamento
+
+---
+
+### Fechamentos Mensais
+
+Consulta e geração dos fechamentos consolidados.
+
+Funcionalidades:
+
+* Listagem
+* Consulta detalhada
+* Reprocessamento de fechamento
+* Exportação de relatórios
+
+---
+
+### Usuários
+
+Administração dos usuários do sistema.
+
+Funcionalidades:
+
+* Listagem
+* Cadastro
+* Edição
+* Exclusão
+
+---
+
+## Integração com API
+
+O frontend consome recursos disponibilizados pela API REST do backend.
+
+Principais recursos consumidos:
+
+text
+/auth
+/clientes
+/caminhoes
+/operacoes
+/vales
+/fechamentos
+/usuarios
+
+
+A configuração do endereço da API é realizada no módulo responsável pela comunicação HTTP.
+
+---
+
+## Sessão e Segurança
+
+A autenticação é baseada em tokens JWT fornecidos pelo backend.
+
+Todas as requisições protegidas são realizadas mediante envio do token de autenticação.
+
+O controle de acesso e autorização é validado pelo backend.
+
+---
+
+## Execução Local
+
+### Pré-requisitos
+
+* Node.js
+* Backend em execução
+* Dependências instaladas
+
+### Inicialização
+
+bash
+npx serve . -l 3001
+
+
+A aplicação ficará disponível no endereço configurado localmente.
+
+---
+
+## Dependências Externas
+
+* Navegador compatível com ES6+
+* API Jobema disponível e acessível
+* Conectividade com o banco de dados através do backend
