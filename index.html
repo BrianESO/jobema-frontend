@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobema — Distribuidora de Água</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========== LOGIN ========== -->
+    <div id="page-login" class="page active">
+      <div class="login-bg">
+        <div class="login-card">
+          <div class="login-brand">
+            <div class="login-logo">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                <rect width="44" height="44" rx="10" fill="#1565C0" />
+                <path
+                  d="M10 28 C10 20 16 14 22 14 C28 14 34 20 34 28"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M14 28 C14 22 17.5 18 22 18 C26.5 18 30 22 30 28"
+                  stroke="white"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+                <rect x="18" y="28" width="8" height="5" rx="2" fill="white" />
+              </svg>
+            </div>
+            <div>
+              <div class="login-name">Jobema</div>
+              <div class="login-tagline">Distribuidora de Água Ltda</div>
+            </div>
+          </div>
+          <h2 class="login-title">Acesso ao Sistema</h2>
+          <div class="field-group">
+            <label>Login</label>
+            <input
+              id="login-user"
+              type="text"
+              placeholder="Digite seu login"
+              autocomplete="username"
+            />
+          </div>
+          <div class="field-group">
+            <label>Senha</label>
+            <input
+              id="login-pass"
+              type="password"
+              placeholder="Digite sua senha"
+              autocomplete="current-password"
+            />
+          </div>
+          <div id="login-error" class="login-error hidden">
+            Login ou senha incorretos.
+          </div>
+          <button id="btn-login" class="btn-primary full">Entrar</button>
+          <p class="login-footer">Jobema © 2025 · Campinas, SP</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== APP ========== -->
+    <div id="page-app" class="page">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <svg width="28" height="28" viewBox="0 0 44 44" fill="none">
+            <rect width="44" height="44" rx="8" fill="#1565C0" />
+            <path
+              d="M10 28 C10 20 16 14 22 14 C28 14 34 20 34 28"
+              stroke="white"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+            <path
+              d="M14 28 C14 22 17.5 18 22 18 C26.5 18 30 22 30 28"
+              stroke="white"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+            <rect x="18" y="28" width="8" height="5" rx="2" fill="white" />
+          </svg>
+          <span class="brand-name">Jobema</span>
+        </div>
+        <nav class="sidebar-nav">
+          <div class="nav-section-label">Principal</div>
+          <button class="nav-item active" data-module="dashboard">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M2 10a8 8 0 1116 0A8 8 0 012 10zm8-5a1 1 0 011 1v3.586l2.707 2.707a1 1 0 01-1.414 1.414l-3-3A1 1 0 019 10V6a1 1 0 011-1z"
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+              />
+            </svg>
+            Dashboard
+          </button>
+          <div class="nav-section-label">Cadastros</div>
+          <button class="nav-item" data-module="clientes">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 14.094A5.973 5.973 0 004 17v1H1v-1a3 3 0 013.75-2.906z"
+              />
+            </svg>
+            Clientes
+          </button>
+          <button class="nav-item" data-module="caminhoes">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+              />
+              <path
+                d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1v-1h3.05a2.5 2.5 0 014.9 0H19a1 1 0 001-1v-6a1 1 0 00-.293-.707l-3-3A1 1 0 0016 4H3z"
+              />
+            </svg>
+            Caminhões
+          </button>
+          <div class="nav-section-label">Operações</div>
+          <button class="nav-item" data-module="operacoes">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Operações
+          </button>
+          <button class="nav-item" data-module="vales">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Vales
+          </button>
+          <button class="nav-item" data-module="historico">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Histórico
+          </button>
+          <div class="nav-section-label">Financeiro</div>
+          <button class="nav-item" data-module="fechamentos">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Fechamentos
+          </button>
+          <div class="nav-section-label">Admin</div>
+          <button class="nav-item" data-module="usuarios">
+            <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Usuários
+          </button>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="user-info">
+            <div class="user-avatar" id="user-avatar">?</div>
+            <div>
+              <div class="user-name" id="user-label">—</div>
+              <div class="user-role" id="user-role">—</div>
+            </div>
+          </div>
+          <button id="btn-logout" class="btn-logout" title="Sair">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+              <path
+                fill-rule="evenodd"
+                d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <!-- DASHBOARD -->
+        <section id="mod-dashboard" class="module active">
+          <div class="module-header">
+            <div>
+              <h1>Dashboard</h1>
+              <p class="module-desc">Visão geral das operações</p>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card stat-blue">
+              <div class="stat-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="stat-value" id="stat-clientes">—</div>
+                <div class="stat-label">Clientes</div>
+              </div>
+            </div>
+            <div class="stat-card stat-teal">
+              <div class="stat-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                  />
+                  <path
+                    d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1v-1h3.05a2.5 2.5 0 014.9 0H19a1 1 0 001-1v-6a1 1 0 00-.293-.707l-3-3A1 1 0 0016 4H3z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="stat-value" id="stat-caminhoes">—</div>
+                <div class="stat-label">Caminhões</div>
+              </div>
+            </div>
+            <div class="stat-card stat-indigo">
+              <div class="stat-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="stat-value" id="stat-operacoes">—</div>
+                <div class="stat-label">Operações</div>
+              </div>
+            </div>
+            <div class="stat-card stat-orange">
+              <div class="stat-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="stat-value" id="stat-vales">—</div>
+                <div class="stat-label">Vales emitidos</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2>Últimas Operações</h2>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Tipo</th>
+                  <th>Cliente</th>
+                  <th>Caminhão</th>
+                  <th>Qtd (m³)</th>
+                  <th>Valor</th>
+                  <th>Data</th>
+                </tr>
+              </thead>
+              <tbody id="dash-op-body">
+                <tr>
+                  <td colspan="7" class="empty">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- CLIENTES -->
+        <section id="mod-clientes" class="module">
+          <div class="module-header">
+            <div>
+              <h1>Clientes</h1>
+              <p class="module-desc">Cadastro e gestão de clientes</p>
+            </div>
+            <button
+              class="btn-primary"
+              onclick="
+                resetClienteForm();
+                openModal('modal-cliente');
+              "
+            >
+              + Novo Cliente
+            </button>
+          </div>
+          <div class="card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nome</th>
+                  <th>Modalidade</th>
+                  <th>Telefone</th>
+                  <th>Endereço</th>
+                  <th>Cadastro</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="clientes-body">
+                <tr>
+                  <td colspan="7" class="empty">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- CAMINHÕES -->
+        <section id="mod-caminhoes" class="module">
+          <div class="module-header">
+            <div>
+              <h1>Caminhões</h1>
+              <p class="module-desc">Frota disponível para operações</p>
+            </div>
+            <button
+              class="btn-primary"
+              onclick="
+                resetCaminhaoForm();
+                openModal('modal-caminhao');
+              "
+            >
+              + Novo Caminhão
+            </button>
+          </div>
+          <div class="card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Placa</th>
+                  <th>Motorista</th>
+                  <th>Ano</th>
+                  <th>Capacidade</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="caminhoes-body">
+                <tr>
+                  <td colspan="6" class="empty">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- OPERAÇÕES -->
+        <section id="mod-operacoes" class="module">
+          <div class="module-header">
+            <div>
+              <h1>Operações</h1>
+              <p class="module-desc">Entregas e retiradas de água</p>
+            </div>
+            <button
+              class="btn-primary"
+              onclick="
+                resetOperacaoForm();
+                openModal('modal-operacao');
+              "
+            >
+              + Nova Operação
+            </button>
+          </div>
+          <div class="card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Tipo</th>
+                  <th>Cliente</th>
+                  <th>Caminhão</th>
+                  <th>Responsável</th>
+                  <th>Qtd (m³)</th>
+                  <th>Valor</th>
+                  <th>Data</th>
+                  <th>Obs.</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="operacoes-body">
+                <tr>
+                  <td colspan="10" class="empty">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- VALES -->
+        <section id="mod-vales" class="module">
+          <div class="module-header">
+            <div>
+              <h1>Vales</h1>
+              <p class="module-desc">Comprovantes de fornecimento de água</p>
+            </div>
+            <button
+              class="btn-primary"
+              onclick="
+                resetValeForm();
+                openModal('modal-vale');
+              "
+            >
+              + Novo Vale
+            </button>
+          </div>
+          <div class="card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Operação</th>
+                  <th>Cliente</th>
+                  <th>Valor</th>
+                  <th>Emissão</th>
+                  <th>Status</th>
+                  <th>Data Pgto.</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="vales-body">
+                <tr>
+                  <td colspan="8" class="empty">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- HISTÓRICO -->
+        <section id="mod-historico" class="module">
+          <div class="module-header">
+            <div>
+              <h1>Histórico por Cliente</h1>
+              <p class="module-desc">Consulta de movimentações por período</p>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom: 20px">
+            <div class="filter-bar">
+              <div class="field-group" style="flex: 2">
+                <label>Cliente</label>
+                <select id="hist-cliente"></select>
+              </div>
+              <div class="field-group">
+                <label>Data inicial</label>
+                <input id="hist-data-ini" type="date" />
+              </div>
+              <div class="field-group">
+                <label>Data final</label>
+                <input id="hist-data-fim" type="date" />
+              </div>
+              <div
+                class="field-group"
+                style="justify-content: flex-end; padding-top: 20px"
+              >
+                <button class="btn-primary" id="btn-buscar-historico">
+                  Buscar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card" id="hist-resultado" style="display: none">
+            <div class="card-header">
+              <h2 id="hist-titulo">Histórico</h2>
+              <span class="badge-count" id="hist-total"></span>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Tipo</th>
+                  <th>Qtd (m³)</th>
+                  <th>Valor</th>
+                  <th>Data</th>
+                  <th>Responsável</th>
+                  <th>Obs.</th>
+                  <th>Vale?</th>
+                </tr>
+              </thead>
+              <tbody id="hist-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- FECHAMENTOS -->
+        <section id="mod-fechamentos" class="module">
+          <div class="module-header">
+            <div>
+              <h1>Fechamentos Mensais</h1>
+              <p class="module-desc">Consolidação mensal por cliente</p>
+            </div>
+            <button class="btn-primary" id="btn-gerar-fechamento">
+              ⚡ Gerar Fechamento
+            </button>
+          </div>
+          <div class="card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Cliente</th>
+                  <th>Mês / Ano</th>
+                  <th>Total Op.</th>
+                  <th>Total Qtd (m³)</th>
+                  <th>Total (R$)</th>
+                  <th>Gerado em</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="fechamentos-body">
+                <tr>
+                  <td colspan="7" class="empty">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- USUÁRIOS -->
+        <section id="mod-usuarios" class="module">
+          <div class="module-header">
+            <div>
+              <h1>Usuários</h1>
+              <p class="module-desc">Controle de acesso ao sistema</p>
+            </div>
+            <button
+              class="btn-primary"
+              onclick="
+                resetUsuarioForm();
+                openModal('modal-usuario');
+              "
+            >
+              + Novo Usuário
+            </button>
+          </div>
+          <div class="card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nome</th>
+                  <th>Login</th>
+                  <th>Perfil</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="usuarios-body">
+                <tr>
+                  <td colspan="5" class="empty">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ========== MODALS ========== -->
+
+    <!-- Modal Cliente -->
+    <div id="modal-cliente" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="modal-cliente-title">Novo Cliente</h2>
+          <button class="modal-close" onclick="closeModal('modal-cliente')">
+            ✕
+          </button>
+        </div>
+        <input type="hidden" id="cliente-id" />
+        <div class="modal-body">
+          <div class="field-group">
+            <label>Nome *</label>
+            <input
+              id="cliente-nome"
+              type="text"
+              placeholder="Nome completo ou razão social"
+            />
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label>Modalidade *</label>
+              <select id="cliente-modalidade">
+                <option value="">Selecione...</option>
+                <option value="ENTREGA">Entrega</option>
+                <option value="RETIRADA">Retirada</option>
+                <option value="AMBAS">Ambas</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Preço por m³ (R$)</label>
+              <input
+                id="cliente-preco-m3"
+                type="number"
+                step="0.01"
+                placeholder="0,00"
+              />
+            </div>
+            <div class="field-group">
+              <label>Telefone / Contato</label>
+              <input
+                id="cliente-telefone"
+                type="text"
+                placeholder="(19) 9xxxx-xxxx"
+              />
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Endereço</label>
+            <input
+              id="cliente-endereco"
+              type="text"
+              placeholder="Rua, número, bairro, cidade"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" onclick="closeModal('modal-cliente')">
+            Cancelar
+          </button>
+          <button class="btn-primary" id="btn-save-cliente">
+            Salvar Cliente
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Caminhão -->
+    <div id="modal-caminhao" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="modal-caminhao-title">Novo Caminhão</h2>
+          <button class="modal-close" onclick="closeModal('modal-caminhao')">
+            ✕
+          </button>
+        </div>
+        <input type="hidden" id="caminhao-id" />
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="field-group">
+              <label>Placa *</label>
+              <input
+                id="caminhao-placa"
+                type="text"
+                placeholder="ABC-1234"
+                style="text-transform: uppercase"
+              />
+            </div>
+            <div class="field-group">
+              <label>Motorista</label>
+              <input
+                id="caminhao-motorista"
+                type="text"
+                placeholder="Ex: Vitor"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label>Ano</label>
+              <input id="caminhao-ano" type="number" placeholder="2020" />
+            </div>
+            <div class="field-group">
+              <label>Capacidade (m³)</label>
+              <input
+                id="caminhao-capacidade-litros"
+                type="number"
+                placeholder="10000"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" onclick="closeModal('modal-caminhao')">
+            Cancelar
+          </button>
+          <button class="btn-primary" id="btn-save-caminhao">
+            Salvar Caminhão
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Operação -->
+    <div id="modal-operacao" class="modal-overlay hidden">
+      <div class="modal modal-lg">
+        <div class="modal-header">
+          <h2 id="modal-operacao-title">Nova Operação</h2>
+          <button class="modal-close" onclick="closeModal('modal-operacao')">
+            ✕
+          </button>
+        </div>
+        <input type="hidden" id="operacao-id" />
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="field-group">
+              <label>Tipo *</label>
+              <select id="operacao-tipo">
+                <option value="">Selecione...</option>
+                <option value="ENTREGA">🚛 Entrega</option>
+                <option value="RETIRADA">🔄 Retirada</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Cliente *</label>
+              <select id="operacao-cliente"></select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label>Caminhão (Placa) *</label>
+              <select id="operacao-caminhao"></select>
+            </div>
+            <div class="field-group">
+              <label>Responsável *</label>
+              <select id="operacao-usuario"></select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label>Quantidade (m³) *</label>
+              <input
+                id="operacao-quantidade"
+                type="number"
+                min="1"
+                placeholder="ex: 10000"
+              />
+            </div>
+            <div class="field-group">
+              <label>Valor (R$) *</label>
+              <input
+                id="operacao-valor"
+                type="number"
+                step="0.01"
+                placeholder="0,00"
+              />
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Observação</label>
+            <input
+              id="operacao-observacao"
+              type="text"
+              placeholder="Informações adicionais (opcional)"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" onclick="closeModal('modal-operacao')">
+            Cancelar
+          </button>
+          <button class="btn-primary" id="btn-save-operacao">
+            Salvar Operação
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Vale -->
+    <div id="modal-vale" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="modal-vale-title">Novo Vale</h2>
+          <button class="modal-close" onclick="closeModal('modal-vale')">
+            ✕
+          </button>
+        </div>
+        <input type="hidden" id="vale-id" />
+        <div class="modal-body">
+          <div class="field-group">
+            <label>Operação *</label>
+            <select id="vale-operacao"></select>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label>Valor (R$) *</label>
+              <input
+                id="vale-valor"
+                type="number"
+                step="0.01"
+                placeholder="0,00"
+              />
+            </div>
+            <div class="field-group">
+              <label>Status</label>
+              <select id="vale-pago">
+                <option value="false">⏳ Pendente</option>
+                <option value="true">✅ Pago</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Data de Pagamento</label>
+            <input id="vale-data-pagamento" type="date" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" onclick="closeModal('modal-vale')">
+            Cancelar
+          </button>
+          <button class="btn-primary" id="btn-save-vale">Salvar Vale</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Usuário -->
+    <div id="modal-usuario" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="modal-usuario-title">Novo Usuário</h2>
+          <button class="modal-close" onclick="closeModal('modal-usuario')">
+            ✕
+          </button>
+        </div>
+        <input type="hidden" id="usuario-id" />
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="field-group">
+              <label>Nome completo *</label>
+              <input id="usuario-nome" type="text" />
+            </div>
+            <div class="field-group">
+              <label>Login *</label>
+              <input id="usuario-login" type="text" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label>Senha *</label>
+              <input
+                id="usuario-senha"
+                type="password"
+                placeholder="Deixe em branco para manter"
+              />
+            </div>
+            <div class="field-group">
+              <label>Perfil *</label>
+              <select id="usuario-perfil">
+                <option value="">Selecione...</option>
+                <option value="admin">Administrador</option>
+                <option value="operador">Operador</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" onclick="closeModal('modal-usuario')">
+            Cancelar
+          </button>
+          <button class="btn-primary" id="btn-save-usuario">
+            Salvar Usuário
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Vale Impressão -->
+    <div id="modal-vale-print" class="modal-overlay hidden">
+      <div class="modal modal-print-preview">
+        <div class="modal-header">
+          <h2>Visualizar Vale</h2>
+          <button class="modal-close" onclick="closeModal('modal-vale-print')">
+            ✕
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 0">
+          <div id="vale-print-area" class="vale-print">
+            <!-- preenchido via JS -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" onclick="closeModal('modal-vale-print')">
+            Fechar
+          </button>
+          <button class="btn-primary" onclick="window.print()">
+            🖨 Imprimir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
