@@ -14,6 +14,7 @@ let _usuarios = [];
 let _operacoes = [];
 let _vales = [];
 let _currentUser = null;
+let _salvandoOperacao = false;
 
 const MESES = [
   "",
@@ -591,6 +592,9 @@ function calcularValorOperacao() {
 document
   .getElementById("btn-save-operacao")
   .addEventListener("click", async () => {
+    if (_salvandoOperacao) return;
+    _salvandoOperacao = true;
+
     const id = document.getElementById("operacao-id").value;
     const body = {
       id_cliente: Number(document.getElementById("operacao-cliente").value),
@@ -612,6 +616,7 @@ document
       !body.valor
     ) {
       showToast("Preencha todos os campos obrigatórios.", "error");
+      _salvandoOperacao = false;
       return;
     }
 
@@ -622,20 +627,13 @@ document
       } else {
         await api.operacoes.create(body);
         showToast("Operação registrada e vale gerado!");
-        const res = await api.operacoes.create(body);
-        const novaOp = res.data;
-        await api.vales.create({
-          id_operacao: novaOp.id_operacao,
-          valor: novaOp.valor,
-          pago: false,
-          data_pagamento: null,
-        });
-        showToast("Operação registrada e vale gerado!");
       }
       closeModal("modal-operacao");
       loadOperacoes();
     } catch (e) {
       showToast(e.message, "error");
+    } finally {
+      _salvandoOperacao = false;
     }
   });
 async function editOperacao(id) {
