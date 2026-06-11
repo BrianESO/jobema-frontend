@@ -486,7 +486,7 @@ async function loadOperacoes() {
       api.operacoes.list(),
       api.clientes.list(),
       api.caminhoes.list(),
-      api.usuarios.list(),
+      api.usuarios.listForSelect(),
       api.vales.list(),
     ]);
     _operacoes = opRes.data || [];
@@ -534,7 +534,7 @@ async function populateOperacaoSelects(
   if (_caminhoes.length === 0)
     _caminhoes = (await api.caminhoes.list()).data || [];
   if (_usuarios.length === 0)
-    _usuarios = (await api.usuarios.list()).data || [];
+    _usuarios = (await api.usuarios.listForSelect()).data || [];
 
   document.getElementById("operacao-cliente").innerHTML =
     '<option value="">Selecione o cliente...</option>' +
@@ -833,7 +833,7 @@ async function imprimirVale(id) {
       _caminhoes = (await api.caminhoes.list()).data || [];
 
     if (_usuarios.length === 0)
-      _usuarios = (await api.usuarios.list()).data || [];
+      _usuarios = (await api.usuarios.listForSelect()).data || [];
 
     const op = _operacoes.find((o) => o.id_operacao == v.id_operacao);
     const nCl = op ? clienteNome(op.id_cliente) : "—";
@@ -954,7 +954,7 @@ document
         _operacoes = (await api.operacoes.list()).data || [];
       if (_vales.length === 0) _vales = (await api.vales.list()).data || [];
       if (_usuarios.length === 0)
-        _usuarios = (await api.usuarios.list()).data || [];
+        _usuarios = (await api.usuarios.listForSelect()).data || [];
 
       // filtrar por cliente e período
       let ops = _operacoes.filter((op) => op.id_cliente == idCliente);
